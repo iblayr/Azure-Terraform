@@ -1,6 +1,6 @@
 # Azure Terraform
 
-## Instalação do Terraform COMPUTING
+## Instalação do Terraform
 
 * Azure CLI : https://aka.ms/installazurecliwindows
 
