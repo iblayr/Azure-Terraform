@@ -16,8 +16,8 @@
 
 ## Principais comandos Terraform
 
-| Comando | Descrição                  |
-|--------:|----------------------------|
+| Comando           | Descrição                  |
+|------------------:|----------------------------|
 | terraform init       | Inicializa o ambiente com o provider utilizado. Por exemplo, se você estiver utilizando o provider "Azure", inicializa e baixa os plugins necessários para Azure.                  |
 | terraform plan       | Verifica o plano de execução do Terraform (simula o apply), mostando o que o Terraform era executar.                  |
 | terraform apply      | Este comando que cria e altera as Instâncias/Objetos no Provider de acordo com o seu terraform.                  | 
