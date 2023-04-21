@@ -1,0 +1,5 @@
+# Descrição do Script
+
+Esse script Terraform está sendo utilizado para criar uma infraestrutura básica no Azure. O projeto consiste em criar duas redes virtuais distintas, uma para um ambiente Windows e outra para um ambiente Linux. Cada rede virtual possui uma subnet, um Network Security Group (NSG) e uma máquina virtual, juntamente com os recursos necessários para que cada máquina possa se comunicar com a internet.
+
+Para a rede virtual Windows, é criado um IP público, uma Network Interface Card (NIC) e uma máquina virtual com o sistema operacional Windows Server 2022. Para a rede virtual Linux, é criado um IP público, uma NIC e uma máquina virtual com o sistema operacional Ubuntu Server. Ambas as máquinas virtuais são associadas à sua respectiva subnet e ao NSG correspondente, que permitem ou bloqueiam o tráfego de rede de acordo com as regras especificadas.
