@@ -63,8 +63,8 @@ resource "azurerm_subnet_network_security_group_association" "nsg01" {
 
 
 # Deploy Public IP
-resource "azurerm_public_ip" "pip01" {
-  name                = "pip-vmwin01"
+resource "azurerm_public_ip" "ip01" {
+  name                = "ip-vmwin01"
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
   allocation_method   = "Dynamic"
@@ -73,14 +73,14 @@ resource "azurerm_public_ip" "pip01" {
 # Deploy NIC
 resource "azurerm_network_interface" "vnic01" {
   name                = "nic-vm-win01"
-  resource_group_name = azurerm_resource_group.RG.name
+  resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
 
   ip_configuration {
     name                          = "internal"
     subnet_id                     = azurerm_subnet.sub01.id
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = azurerm_public_ip.pip01.id
+    public_ip_address_id          = azurerm_public_ip.ip01.id
   }
 }
 
@@ -90,8 +90,8 @@ resource "azurerm_windows_virtual_machine" "vm01" {
   resource_group_name             = azurerm_resource_group.rg.name
   location                        = azurerm_resource_group.rg.location
   size                            = "Standard_B2S"
-  admin_username                  = "admin.tftec"
-  admin_password                  = "Tftec@2022"
+  admin_username                  = "admin.azure"
+  admin_password                  = "Iblayr@2023"
   network_interface_ids = [
     azurerm_network_interface.vnic01.id,
   ]
@@ -154,8 +154,8 @@ resource "azurerm_subnet_network_security_group_association" "nsg02" {
 }
 
 # Deploy Public IP Linux
-resource "azurerm_public_ip" "pip02" {
-  name                = "pip-vmlnx01"
+resource "azurerm_public_ip" "ip02" {
+  name                = "ip-vmlnx01"
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
   allocation_method   = "Dynamic"
@@ -169,9 +169,9 @@ resource "azurerm_network_interface" "vnic02" {
 
   ip_configuration {
     name                          = "internal"
-    subnet_id                     = azurerm_subnet.sub2.id
+    subnet_id                     = azurerm_subnet.sub02.id
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = azurerm_public_ip.pip02.id
+    public_ip_address_id          = azurerm_public_ip.ip02.id
   }
 }
 
@@ -182,8 +182,8 @@ resource "azurerm_linux_virtual_machine" "vm02" {
   resource_group_name             = azurerm_resource_group.rg.name
   location                        = azurerm_resource_group.rg.location
   size                            = "Standard_B2S"
-  admin_username                  = "admintftec"
-  admin_password                  = "Tftec@2022"
+  admin_username                  = "adminazure"
+  admin_password                  = "Iblayr@2023"
   disable_password_authentication = false
   network_interface_ids = [
     azurerm_network_interface.vnic02.id,
